@@ -17,3 +17,36 @@ You must provide AWS Access Key and AWS Access Secret
 ## Getting Started
 Following step by step bellow:
 ### 1. download binary file
+You must download the binary file ```instance-controller``` and file ```configinstances.json``` from ```build``` folder and put on your server controller. So in this case you should have 1 server as controller, usually a devOps always have at least 1 server for controller other resouce service and other servers.
+### 2. set AWS region
+```golang
+cd yourfolder_where_put_binary 
+./instance-controller jobs awsregion -r "ap-southeast-1"
+```
+replace ```ap-southeast-1``` with your region
+### 3. set AWS profile
+```golang
+./instance-controller jobs awsprofilen -p default
+```
+replace ```default``` with your credential profile
+### 4. Register instances
+You must register server instances one or more with instance ID
+```golang
+./instance-controller instances i-abcxxxxx i-defxxxxx i-ghixxxx
+```
+to read list of instances:
+```golang
+./instance-controller instances 
+```
+### 5. set Schedule
+To automatic run and stop you must set the schedule for ```t``` (run) and ```s``` (stop)
+```golang
+./instance-controller jobs schedule -t "0 0 7 * * *" -s "0 0 18 * * *" 
+```
+This example we set sechdule for run every 7 am and stop instances every 18 pm for every day. time format such as cronjob, ```second minute clock day month year```.
+
+### 6. Running
+this will running jobs automaticly for run and stop instances
+```golang
+./instance-controller jobs run
+```
