@@ -58,7 +58,7 @@ func cJobStop(configfile *types.ConfigFile) {
 		if len(configfile.Instances) > 0 {
 			cfg, err := config.LoadDefaultConfig(context.TODO(), config.WithRegion(configfile.Awsregion), config.WithSharedConfigProfile(configfile.Awsprofile))
 			for _, instanceID := range configfile.Instances {
-				fmt.Println("Starting instance " + instanceID)
+				fmt.Println("Stopping instance " + instanceID)
 				client := ec2.NewFromConfig(cfg)
 				var dr = false
 				input := &ec2.StopInstancesInput{
