@@ -35,7 +35,7 @@ cd myfolder
 replace ```ap-southeast-1``` with your region
 ### 3. set AWS profile
 ```golang
-./instance-controller jobs awsprofilen -p default
+./instance-controller jobs awsprofile -p default
 ```
 replace ```default``` with your credential profile
 ### 4. Register instances
