@@ -18,9 +18,18 @@ You must provide AWS Access Key and AWS Access Secret
 Following step by step bellow:
 ### 1. download binary file
 You must download the binary file ```instance-controller``` and file ```configinstances.json``` from ```build``` folder and put on your server controller. So in this case you should have 1 server as controller, usually a devOps always have at least 1 server for controller other resouce service and other servers.
+#### OR
+you can download from release with curl:
+```golang
+curl -L https://github.com/aljabary/instance-controller/releases/download/beta/instance-controller.zip instance-controller.zip
+```
+and then extract to folder:
+```golang
+unzip instance-controller.zip -d ./myfolder
+```
 ### 2. set AWS region
 ```golang
-cd yourfolder_where_put_binary 
+cd myfolder 
 ./instance-controller jobs awsregion -r "ap-southeast-1"
 ```
 replace ```ap-southeast-1``` with your region
